@@ -1,6 +1,7 @@
 package model;
 
-public class Launcher implements Spacecraft{
+public class Launcher implements Spacecraft{ //This is the class for the Rocket Launcher craft
+    //Variable declaration
     private String name;
     private String type;
     private String fuel;
@@ -8,12 +9,17 @@ public class Launcher implements Spacecraft{
     private int weight;
     private int height;
     public Launcher(){
-        System.out.println("You have created a Rocket Launcher");
+
     }
+    //methods used by this class
     @Override
     public void startEngine() {
         System.out.println("The engine of the "+ this.name + " has started");
     }
+    public String separate(){
+        return "This ship can be separate from payload";
+    }
+
     @Override
     public String getName() {
         return name;

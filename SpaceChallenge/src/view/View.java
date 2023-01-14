@@ -7,7 +7,8 @@ import java.awt.*;
 public class View extends JFrame {
     //variable declaration
     final private Font myFont = new Font("Segoe print", Font.PLAIN, 18);
-    private JLabel lbCraftName, lbCraftType, lbFuel, lbThrust, lbWeight, lbHeight, lbSelectType, lbMethods;
+    private JLabel lbCraftName, lbCraftType, lbFuel, lbThrust, lbWeight, lbHeight, lbSelectType;
+    public JLabel lbMethods;
     public JTextField tfCraftName, tfFuel, tfThrust, tfWeight, tfHeight, tfNumOfEngines;
     public JComboBox<String> jcCraftType, jcSearchType;
     public JButton btLoad, btList, btSearch;
@@ -16,13 +17,13 @@ public class View extends JFrame {
     public JTable table;
     private DefaultTableModel dtm = new DefaultTableModel(object, dataTable);
 
-    //This method starts the window
-    public void initialize(){
+
+    public void initialize(){//This method starts the window
         setTitle("Welcome");
         setSize(1000, 600);
         setMinimumSize(new Dimension(300, 400));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        initComponents();
+        initComponents(); //use the initComponents method
 
     }
     public void Clear_Table1(){
@@ -32,11 +33,8 @@ public class View extends JFrame {
         }
     }
     //This method initialize all the components we will have on the window
-    public void initComponents(){
-        // Here are the panel located in the north of the main frame, this is used as the frame to create a spacecraft
-        JPanel mainPanel = new JPanel();
-        mainPanel.setLayout(new BorderLayout());
-        mainPanel.setBackground(new Color(128, 128, 25));
+    public void initComponents(){//This method initialize all the components tha are in the view, and also place them
+        // in their frames
 
         lbCraftName = new JLabel("Craft name"); //initialize the component
         lbCraftName.setFont(myFont);        //set a font style to the component
@@ -100,6 +98,11 @@ public class View extends JFrame {
         lbSelectType.setFont(myFont);
 
 //-------------------------------------------------------------
+        //Here are the panels created and what they will contain
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(new BorderLayout());
+        mainPanel.setBackground(new Color(128, 128, 25));
+
         JPanel headerPanel = new JPanel();
         headerPanel.setLayout(new BorderLayout());
 

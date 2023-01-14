@@ -1,6 +1,7 @@
 package model;
 
-public class MannedCraft implements Spacecraft{
+public class MannedCraft implements Spacecraft{//This is the class for the Manned spacecraft
+    //Variable declaration
     private String name;
     private String type;
     private String fuel;
@@ -8,11 +9,17 @@ public class MannedCraft implements Spacecraft{
     private int weight;
     private int height;
     public MannedCraft(){
-        System.out.println();
     }
+    //Methods used by this class
     @Override
     public void startEngine() {
         System.out.println("The engine of the "+ this.name + " has started");
+    }
+    public String landing(){
+        return "This ship can land";
+    }
+    public String passengerBoarding(){
+        return "This ship can transport people";
     }
 
     @Override

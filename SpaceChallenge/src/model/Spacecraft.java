@@ -1,5 +1,5 @@
 package model;
-public interface Spacecraft {
+public interface Spacecraft {//This is the interface that is implemented by all the classes of the spacecrafts
     public default void startEngine() {
         System.out.println("The engines have started");
     }

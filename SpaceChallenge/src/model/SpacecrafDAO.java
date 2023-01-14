@@ -7,12 +7,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SpacecrafDAO {
+public class SpacecrafDAO {//this class is the persistence layer
+    //Variable declaration
     Connect connect = new Connect();
     Connection conn;
     PreparedStatement peSt;
     ResultSet reSe;
-    public int load(Spacecraft craft){
+//-----------------------------------------------------
+    public int load(Spacecraft craft){//This method load the new data to the database
         String sql = "insert into spacecraft values (?,?,?,?,?,?)";
         try {
             conn = connect.getConnection();
@@ -30,7 +32,7 @@ public class SpacecrafDAO {
         }
         return 1;
     }
-    public List list(){
+    public List list(){ //This method gets all the data from the database to be putted in the table by the controller
         List<Spacecraft> data = new ArrayList<>();
         String sql = "select * from spacecraft";
         try {
@@ -39,7 +41,6 @@ public class SpacecrafDAO {
             reSe = peSt.executeQuery();
             while(reSe.next()){
                 Spacecraft craft = Factory.create(reSe.getString(2));
-                System.out.println(reSe.getString(2));
                 craft.setName(reSe.getString(1));
                 craft.setType(reSe.getString(2));
                 craft.setFuel(reSe.getString(3));
@@ -54,7 +55,8 @@ public class SpacecrafDAO {
         }
         return data;
     }
-    public List list(String type){
+    public List list(String type){//This method gets all the data tha matches the type from the database
+        // to be putted in the table by the controller
         List<Spacecraft> data = new ArrayList<>();
         String sql = "select * from spacecraft where type = ?";
         try {
@@ -64,7 +66,6 @@ public class SpacecrafDAO {
             reSe = peSt.executeQuery();
             while(reSe.next()){
                 Spacecraft craft = Factory.create(reSe.getString(2));
-                System.out.println(reSe.getString(2));
                 craft.setName(reSe.getString(1));
                 craft.setType(reSe.getString(2));
                 craft.setFuel(reSe.getString(3));

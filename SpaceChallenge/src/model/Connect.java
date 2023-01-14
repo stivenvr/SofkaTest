@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class Connect {
+public class Connect { //This  is the connection to the database
     Connection conn;
     private String host = "localhost";
     private String port = "3306";
@@ -13,7 +13,7 @@ public class Connect {
     private String username = "adminSc";
     private String password = "admin";
 
-    public Connection getConnection(){
+    public Connection getConnection(){//Here we get the connection to the mariadb server
         try {
             Class.forName("org.mariadb.jdbc.Driver");
             String url = "jdbc:mariadb://" + this.host + ":" + this.port + "/" + this.dbName;
